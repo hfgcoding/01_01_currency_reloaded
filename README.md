@@ -5,4 +5,4 @@ Exercise 01 - currency converter reloaded (instructions in index.js)
 ```npm install```
 
 ### Running it (code check, then your program directly afterwards)
-```npm start```
+```npm start -- 10.00 USD EUR```
