@@ -37,3 +37,32 @@ if (args.length < 3) {
   originalCurrency = args[1];
   targetCurrency = args[2];
 }
+
+// Variable 'output' deklarieren
+let output;
+
+// Variable 'Faktor USD -> EUR' deklarieren
+let usd_eur = 0.9;
+// Variable 'Faktor EUR -> USD
+let eur_usd = 1.11;
+
+
+// IF Umwandlungsrichtung
+if (originalCurrency === 'EUR' && targetCurrency === 'USD') {
+
+  // Multiplizieren des Faktors mit Eingangswert
+  // Festlegen als 'output'
+  output = amount * eur_usd;
+  output += '$';
+
+} else if (originalCurrency === 'USD' && targetCurrency === 'EUR') {
+
+  // Multiplizieren des Faktors mit Eingangswert
+  // Festlegen als 'output'
+  output = amount * usd_eur;
+  output += '€';
+
+}
+
+// Ausgabe 'output'
+console.log('Das Ergebnis sind: ' + output);
