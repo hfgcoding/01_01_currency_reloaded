@@ -41,27 +41,71 @@ if (args.length < 3) {
 // Variable 'output' deklarieren
 let output;
 
-// Variable 'Faktor USD -> EUR' deklarieren
-let usd_eur = 0.9;
-// Variable 'Faktor EUR -> USD
+// Variable 'Faktoren EUR' deklarieren
 let eur_usd = 1.11;
+let eur_czk = 25.58;
+
+// Variable 'Faktoren USD' deklarieren
+let usd_eur = 0.9;
+let usd_czk = 23.08;
+
+// Variable 'Faktoren CZK' deklarieren
+let czk_eur = 0.039;
+let czk_usd = 0.043;
+
 
 
 // IF Umwandlungsrichtung
-if (originalCurrency === 'EUR' && targetCurrency === 'USD') {
+if (originalCurrency === 'EUR') {
+
+  switch (targetCurrency) {
+  case 'USD':
+    output = amount * eur_usd;
+    output += '$';
+    break;
+  case 'CZK':
+    output = amount * eur_czk;
+    output += ' Kč';
+    break;
+  default:
+    console.log('Ungültige Angabe');
+    break;
+  }
+
+} else if (originalCurrency === 'USD') {
 
   // Multiplizieren des Faktors mit Eingangswert
   // Festlegen als 'output'
-  output = amount * eur_usd;
-  output += '$';
+  switch (targetCurrency) {
+  case 'EUR':
+    output = amount * usd_eur;
+    output += '€';
+    break;
+  case 'CZK':
+    output = amount * usd_czk;
+    output += ' Kč';
+    break;
+  default:
+    console.log('Ungültige Angabe');
+    break;
+  }
 
-} else if (originalCurrency === 'USD' && targetCurrency === 'EUR') {
+} else if (originalCurrency === 'CZK') {
 
-  // Multiplizieren des Faktors mit Eingangswert
-  // Festlegen als 'output'
-  output = amount * usd_eur;
-  output += '€';
-
+  switch (targetCurrency) {
+  case 'USD':
+    output = amount * czk_usd;
+    output += '$';
+    break;
+  case 'EUR':
+    output = amount * czk_eur;
+    output += '€';
+    break;
+  default:
+    console.log('Ungültige Angabe');
+    break;
+  }
+  
 }
 
 // Ausgabe 'output'
